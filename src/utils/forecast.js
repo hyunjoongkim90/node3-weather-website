@@ -8,7 +8,10 @@ const forecast = (latitude, longitude, callback) => {
         } else if (body.error) {
             callback('Invalid coordinates. Try again.', undefined)
         } else {
-            callback(undefined, `${body.current.weather_descriptions[0]}. 현재 온도는 ${Math.round((body.current.temperature - 32) * 5/9)} ℃, 체감온도는 ${Math.round((body.current.feelslike -32) * 5/9)} ℃ 입니다.`)
+            callback(undefined, `${body.current.weather_descriptions[0]}. 
+            현재 온도는 ${Math.round((body.current.temperature - 32) * 5/9)} ℃, 
+            체감온도는 ${Math.round((body.current.feelslike -32) * 5/9)} ℃ 입니다. 
+            현재 습도는 ${body.current.humidity}%입니다.`)
         }
     })
     
